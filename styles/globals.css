@@ -1,0 +1,385 @@
+/* ============================================
+   KASCOOM WEBSITE - UNIVERSAL DESIGN SYSTEM
+   ============================================
+
+   Based on About Page (Homepage) Design Principles
+   Last Updated: 2026-01-12
+
+   OVERVIEW:
+   This design system is derived from the About page (homepage) and should be
+   applied consistently across all pages, sections, and components throughout
+   the website for a cohesive brand experience.
+
+   ============================================
+   1. COLOR PALETTE
+   ============================================
+
+   PRIMARY BRAND COLOR:
+   - Brand Orange: #f5a623 (Main accent color)
+     Usage: Section backgrounds (Stats, Clients), accent elements, borders,
+     icons, buttons, underlines, highlights
+
+   BACKGROUND COLORS:
+   - Universal Page Background: #f5f5f5 (Light gray)
+   - Card/Content Background: #ffffff (Pure white)
+   - Dark Sections: #040C18, #031B34, #042c54 (for dark-themed pages)
+   - Image Overlays: rgba(0, 0, 0, 0.6) - 60% black opacity
+
+   TEXT COLORS (Neutral Scale):
+   - Primary Headings: #2d3748 (neutral-800)
+   - Secondary Headings: #4a5568 (neutral-700)
+   - Body Text: #718096 (neutral-600)
+   - Muted/Subtle Text: #a0aec0 (neutral-500)
+   - Light Text (on dark): #81AFDD
+   - White Text: #ffffff (on dark backgrounds)
+
+   GRADIENT COLORS:
+   - Gradient Text: linear-gradient(89.97deg, #fbbf24 1.84%, #F49867 102.67%)
+   - Gradient Bar: linear-gradient(103.22deg, #fbbf24 -13.86%, #F49867 99.55%)
+
+   ============================================
+   2. TYPOGRAPHY SYSTEM
+   ============================================
+
+   FONT FAMILIES:
+   - Primary: 'Manrope', sans-serif (English)
+   - Secondary: 'Cairo', 'Manrope', system-ui (Arabic/RTL)
+
+   FONT WEIGHTS:
+   - Regular: 400
+   - Medium: 500
+   - Semibold: 600 (DEFAULT for headings)
+   - Bold: 700 (use sparingly)
+   - Extra Bold: 800 (only for special emphasis)
+
+   HEADING SIZES (Responsive with clamp):
+   - H1: clamp(2rem, 5vw, 3.5rem) - Hero titles
+   - H2: clamp(1.75rem, 4vw, 3rem) - Section titles
+   - H3: clamp(1.5rem, 3vw, 2.25rem) - Subsection titles
+   - H4: clamp(1.25rem, 2.5vw, 1.75rem) - Card titles
+   - H5: clamp(1.125rem, 2vw, 1.5rem) - Small headings
+   - H6: clamp(1rem, 1.5vw, 1.25rem) - Smallest headings
+
+   LINE HEIGHTS:
+   - Headings: 1.2 (tight, for impact)
+   - Body Text: 1.6-1.7 (relaxed, for readability)
+   - Tight Text: leading-tight (1.25)
+   - Relaxed Text: leading-relaxed (1.625)
+
+   LETTER SPACING:
+   - Headings: -0.01em (slightly tighter)
+   - Wide Tracking: tracking-wide (0.025em) for labels
+   - Normal: 0em (default)
+
+   ============================================
+   3. SPACING & LAYOUT
+   ============================================
+
+   SECTION PADDING (Vertical):
+   - Small: py-6 md:py-8 lg:py-10 (Stats, Our Works)
+   - Medium: py-12 sm:py-14 md:py-16 lg:py-20 (What We Offer)
+   - Large: py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 (CTA)
+
+   CONTAINER:
+   - Max Width: max-w-7xl
+   - Padding: px-4 sm:px-6 lg:px-8
+   - Centered: mx-auto
+
+   GAP SIZES:
+   - Cards Grid: gap-5 sm:gap-6 md:gap-6 lg:gap-10
+   - Small Elements: gap-2 sm:gap-2.5
+   - Medium Elements: gap-4 sm:gap-6
+   - Large Sections: gap-6 sm:gap-8
+
+   ============================================
+   4. COMPONENT PATTERNS
+   ============================================
+
+   SECTION TITLES (Consistent Pattern):
+   - Text: text-xl sm:text-2xl md:text-3xl lg:text-4xl
+   - Weight: font-semibold (600)
+   - Color: text-neutral-800
+   - Tracking: tracking-wide
+   - Bottom Border: h-0.5 sm:h-1, backgroundColor: #f5a623
+   - Position: relative inline-block pb-2 sm:pb-3
+
+   CARDS (Project/Service Cards):
+   - Background: bg-white
+   - Padding: p-3 sm:p-4
+   - Shadow: shadow-md
+   - Border Radius: rounded-sm (minimal)
+   - Hover: Scale effects, opacity transitions
+   - Border Accent: Bottom border h-1.5, color: #f5a623
+
+   BUTTONS:
+   - Primary: bg-gradient-bar, text-white
+   - Outline: border-2, hover effects
+   - Touch Target: min-h-[60px] or py-3 sm:py-4
+   - Class: touch-manipulation (for mobile)
+   - Icons: Include arrow icons (ArrowRight)
+
+   IMAGE OVERLAYS:
+   - Dark Overlay: bg-black/60
+   - Gradient Overlay: bg-gradient-to-r from-neutral-900/70 to-neutral-900/50
+   - Hover Overlay: opacity-0 group-hover:opacity-60 transition-opacity
+
+   ICONS:
+   - Circular Background: w-14 h-14 sm:w-16 sm:h-16
+   - Background Color: #f5a623
+   - Icon Color: text-white
+   - Icon Size: w-7 h-7 sm:w-8 sm:h-8
+   - Stroke Width: strokeWidth={2}
+
+   ============================================
+   5. ANIMATIONS & TRANSITIONS
+   ============================================
+
+   TRANSITION DURATIONS:
+   - Fast: duration-200 (hover states)
+   - Normal: duration-300 (most transitions)
+   - Slow: duration-500 (cross-fades, important changes)
+   - Very Slow: duration-[1200ms] to duration-[1500ms] (hero animations)
+
+   EASING:
+   - Default: ease-in-out
+   - Smooth: ease-out
+   - Snap: ease-in
+
+   HOVER EFFECTS:
+   - Scale: group-hover:scale-110
+   - Translate: group-hover:translate-x-1
+   - Opacity: group-hover:opacity-100
+   - Colors: hover:text-neutral-900
+
+   INFINITE SCROLL (Clients Section):
+   - Animation: infinite-scroll 30s linear infinite
+   - Pause on Hover: animation-play-state: paused
+
+   ============================================
+   6. RESPONSIVE BREAKPOINTS
+   ============================================
+
+   - Mobile: < 640px (sm)
+   - Tablet: 640px - 768px (sm-md)
+   - Desktop: 768px - 1024px (md-lg)
+   - Large Desktop: > 1024px (lg+)
+
+   GRID PATTERNS:
+   - 2 Column: grid-cols-1 sm:grid-cols-2
+   - 3 Column: grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+   - 4 Column: grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4
+   - Split Layout: grid-cols-1 md:grid-cols-2 (tabs, content panels)
+
+   ============================================
+   7. ACCESSIBILITY
+   ============================================
+
+   - Touch Targets: min-h-[60px], min-w-[44px]
+   - Touch Manipulation: Add class touch-manipulation
+   - ARIA Labels: Always include on buttons/interactive elements
+   - Focus States: Visible focus rings
+   - Alt Text: All images must have descriptive alt text
+   - Contrast: Minimum 4.5:1 for text
+
+   ============================================
+   8. BEST PRACTICES
+   ============================================
+
+   ✓ DO:
+   - Use #f5a623 for ALL accent elements
+   - Apply 60% black overlay on all background images
+   - Use font-weight: 600 (semibold) for headings
+   - Include responsive sizes (mobile-first)
+   - Use CSS variables from :root
+   - Add transition effects for interactivity
+   - Use semantic HTML (section, article, etc.)
+
+   ✗ DON'T:
+   - Use pure black (#000000) for text
+   - Use font-weight: 700 unless necessary
+   - Mix multiple accent colors
+   - Forget mobile responsiveness
+   - Skip touch-manipulation on touch targets
+   - Use inline styles unless necessary (Section backgrounds ok)
+
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Typography */
+  --font-family: 'Manrope', sans-serif;
+
+  /* Universal Background Colors */
+  --color-bg-universal: #f5f5f5;        /* Light gray - universal page background */
+  --color-bg-white: #ffffff;            /* Pure white - card backgrounds */
+  --color-bg-accent: #f5a623;           /* Softer orange - accent sections (Stats, Clients) */
+
+  /* Dark Theme Colors (for Services, Projects, Contact pages) */
+  --color-bg-dark: #040C18;
+  --color-footer: #031B34;
+  --color-blog: #042c54;
+
+  /* Text Colors */
+  --color-text-primary: #2d3748;        /* Neutral-800 - main headings */
+  --color-text-secondary: #4a5568;      /* Neutral-700 - subheadings */
+  --color-text-tertiary: #718096;       /* Neutral-600 - body text */
+  --color-text-muted: #a0aec0;          /* Neutral-500 - subtle text */
+  --color-text-light: #81AFDD;          /* Light blue - dark theme text */
+
+  /* Accent Colors */
+  --gradient-text: linear-gradient(89.97deg, #fbbf24 1.84%, #F49867 102.67%);
+  --gradient-bar: linear-gradient(103.22deg, #fbbf24 -13.86%, #F49867 99.55%);
+  --color-accent-orange: #F49867;
+  --color-accent-yellow: #f5a623;       /* Primary accent color */
+  --color-subtext: #FF8A71;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg-universal);
+  color: var(--color-text-tertiary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+[dir="rtl"] {
+  font-family: 'Cairo', 'Manrope', system-ui, sans-serif;
+}
+
+/* ============================================
+   DESIGN SYSTEM - Universal Styles
+   ============================================ */
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;  /* semibold by default, not bold */
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.75rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+h4 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
+h5 { font-size: clamp(1.125rem, 2vw, 1.5rem); }
+h6 { font-size: clamp(1rem, 1.5vw, 1.25rem); }
+
+p {
+  color: var(--color-text-tertiary);
+  line-height: 1.7;
+}
+
+/* Prevent Over-Saturation */
+.text-bold-override {
+  font-weight: 600 !important;  /* Enforce semibold instead of bold */
+}
+
+/* Background System */
+.bg-universal {
+  background-color: var(--color-bg-universal);
+}
+
+.bg-card {
+  background-color: var(--color-bg-white);
+}
+
+.bg-accent {
+  background-color: var(--color-bg-accent);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Accent Underline */
+.accent-underline {
+  position: relative;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.accent-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0.25rem;
+  background-color: var(--color-accent-yellow);
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--color-bg-white);
+  border-radius: 0.25rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Universal Image Overlay */
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Section utilities */
+.section-padding {
+  padding: 4rem 6rem;
+}
+
+@media screen and (max-width: 700px) {
+  .section-padding {
+    padding: 4rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .section-padding {
+    padding: 4rem 2rem;
+  }
+}
+
+/* Simple fade-in animation - used sparingly */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Infinite scroll animation for clients section */
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
