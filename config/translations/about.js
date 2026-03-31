@@ -51,7 +51,7 @@ export const about = {
   stats: {
     items: [
       { number: '500+', label: { en: 'Projects Completed', ar: 'مشروع مكتمل' } },
-      { number: '98%', label: { en: 'Client Satisfaction', ar: 'رضا العملاء' } },
+      { number: '84.7%', label: { en: 'Client Satisfaction', ar: 'رضا العملاء' } },
       { number: '50+', label: { en: 'Expert Team Members', ar: 'عضو فريق خبير' } },
       { number: '18+', label: { en: 'Years Experience', ar: 'سنوات من الخبرة' } }
     ]

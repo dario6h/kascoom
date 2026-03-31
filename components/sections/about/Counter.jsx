@@ -7,6 +7,7 @@ export default function Counter({ end, duration = 2000, suffix = "" }) {
   const [hasAnimated, setHasAnimated] = useState(false);
   const counterRef = useRef(null);
   const animationFrameRef = useRef(null);
+  const decimalPlaces = String(end).includes('.') ? String(end).split('.')[1].length : 0;
 
   // Intersection Observer to detect when component is visible
   useEffect(() => {
@@ -36,7 +37,7 @@ export default function Counter({ end, duration = 2000, suffix = "" }) {
   useEffect(() => {
     if (!hasAnimated) return;
 
-    const endValue = parseInt(end);
+    const endValue = Number.parseFloat(end);
     if (isNaN(endValue)) return;
 
     // Check if user prefers reduced motion
@@ -57,7 +58,10 @@ export default function Counter({ end, duration = 2000, suffix = "" }) {
       const progress = Math.min(elapsed / adjustedDuration, 1);
 
       const easeOutExpo = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-      const currentCount = Math.round(easeOutExpo * endValue);
+      const nextValue = easeOutExpo * endValue;
+      const currentCount = decimalPlaces > 0
+        ? Number(nextValue.toFixed(decimalPlaces))
+        : Math.round(nextValue);
 
       setCount(currentCount);
 
@@ -73,11 +77,12 @@ export default function Counter({ end, duration = 2000, suffix = "" }) {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [hasAnimated, end, duration]);
+  }, [hasAnimated, end, duration, decimalPlaces]);
 
   return (
     <span ref={counterRef}>
-      {count}{suffix}
+      {decimalPlaces > 0 ? count.toFixed(decimalPlaces) : count}
+      {suffix}
     </span>
   );
 }

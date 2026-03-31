@@ -12,8 +12,9 @@ export default function StatsSection() {
     <Section className="py-6 md:py-8 lg:py-10" style={{ backgroundColor: '#f5a623' }}>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 divide-x-0 md:divide-x divide-neutral-700/15">
         {stats.map((stat, index) => {
-          const numericValue = stat.number.replace(/\D/g, '');
-          const suffix = stat.number.replace(/\d/g, '');
+          const match = String(stat.number).match(/^(\d+(?:\.\d+)?)(.*)$/);
+          const numericValue = match ? Number.parseFloat(match[1]) : 0;
+          const suffix = match ? match[2] : '';
 
           return (
             <div key={index} className="flex flex-col items-center justify-center text-center px-4">
